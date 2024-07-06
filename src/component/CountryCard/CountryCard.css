@@ -1,0 +1,28 @@
+body {
+    background-color: #b6b6b6;
+}
+
+#Card {
+    border-radius: 5px;
+    width: 250px;
+    height: 350px;
+    background-color: #fff;
+}
+
+#Card img {
+    border-radius: 5px;
+    width: 100%;
+    height: 45%;
+}
+
+#CardName {
+    margin-bottom: 20px;
+}
+
+.CardDetails {
+    margin-bottom: 7px;
+}
+
+#Details {
+    padding: 20px;
+}
