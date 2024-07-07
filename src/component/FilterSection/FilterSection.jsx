@@ -1,31 +1,17 @@
-import CountryCard from "../CountryCard/CountryCard";
-import { getData } from '../../utils/fetcherAPI';
-import { useState, useEffect } from "react";
+import { useDispatch } from 'react-redux';
+import { SearchCountry, filterByRegion } from "../../redux/countrySlice";
 import "./FilterSection.css"
 
 function FilterSection() {
 
-    const [countryData, setCountryData] = useState([]);
-    const [showData, setShowData] = useState([]);
-    useEffect(() => {
-        (async function () {
-            const data = await getData("https://restcountries.com/v3.1/all?fields=flags,name,population,region,capital");
-            setCountryData(data);
-            setShowData(data);
-        })()
-    }, [])
+    const dispatch = useDispatch();
 
     const dropDownChangeHandler = (e) => {
-        if (e.target.value == "All") {
-            return setShowData(countryData);
-        }
-        const data = countryData.filter(country => country.region == e.target.value);
-        setShowData(data);
+        dispatch(filterByRegion(e.target.value));
     }
 
     const searchHandler = (e) => {
-        const data = countryData.filter(country => country.name.common.toLowerCase().startsWith(e.target.value));
-        setShowData(data);
+        dispatch(SearchCountry(e.target.value));
     }
 
     return (
@@ -42,14 +28,6 @@ function FilterSection() {
                     <option value="Europe">Europe</option>
                     <option value="Oceania">Oceania</option>
                 </select>
-            </section>
-
-            <section id="CardsContainer">
-                {
-                    showData?.map((countries, index) => {
-                        return <CountryCard key={index} flags={countries.flags.png} name={countries.name.common} population={countries.population} region={countries.region} capital={countries.capital} />
-                    })
-                }
             </section>
         </>
     );
