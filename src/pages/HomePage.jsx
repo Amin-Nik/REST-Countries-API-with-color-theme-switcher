@@ -10,16 +10,17 @@ function HomePage() {
 
     const dispatch = useDispatch();
     const countryData = useSelector(store => store.countrySlice.countryData);
+    const colorSchema = useSelector(state => state.countrySlice.colorSchema)
 
     useEffect(() => {
         (async function () {
             const data = await getData("https://restcountries.com/v3.1/all");
             dispatch(addCountry(data))
         })()
-    }, [])
+    }, [dispatch])
 
     return (
-        <>
+        <div id="HomePage" style={{ backgroundColor: colorSchema.backGround }}>
             <FilterSection />
             <section id="CardsContainer">
                 {
@@ -28,7 +29,7 @@ function HomePage() {
                     })
                 }
             </section>
-        </>
+        </div>
     );
 }
 

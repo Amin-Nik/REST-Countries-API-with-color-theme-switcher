@@ -1,13 +1,10 @@
-body {
-    background-color: #b6b6b6;
-}
-
 #Card {
     border-radius: 5px;
     width: 250px;
     height: 350px;
     background-color: #fff;
     cursor: pointer;
+    box-shadow: 0 0 10px gray;
 }
 
 #Card img {

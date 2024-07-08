@@ -5,7 +5,13 @@ const countrySlice = createSlice({
     initialState: {
         originalCountryData: [],
         countryData: [],
-        searchData: ""
+        searchData: "",
+        isDarkMode: false,
+        colorSchema: {
+            backGround: "hsl(0, 0%, 98%)",
+            elementBackGround: "hsl(0, 0%, 100%)",
+            textColor: "hsl(200, 15%, 8%)"
+        }
     },
     reducers: {
         addCountry: (state, action) => {
@@ -24,10 +30,27 @@ const countrySlice = createSlice({
                 state.countryData = state.originalCountryData.filter(country =>
                     country.region == action.payload)
             }
+        },
+        darkModeToggle: (state) => {
+            state.isDarkMode = !state.isDarkMode
+
+            if (state.isDarkMode) {
+                state.colorSchema = {
+                    backGround: "hsl(207, 26%, 17%)",
+                    elementBackGround: "hsl(209, 23%, 22%)",
+                    textColor: "hsl(0, 0%, 100%)"
+                }
+            } else {
+                state.colorSchema = {
+                    backGround: "hsl(0, 0%, 98%)",
+                    elementBackGround: "hsl(0, 0%, 100%)",
+                    textColor: "hsl(200, 15%, 8%)"
+                }
+            }
         }
     }
 
 })
 
-export const { addCountry, SearchCountry, filterByRegion } = countrySlice.actions
+export const { addCountry, SearchCountry, filterByRegion, darkModeToggle } = countrySlice.actions
 export default countrySlice.reducer;

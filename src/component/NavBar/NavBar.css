@@ -1,0 +1,18 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #fff;
+    box-shadow: 0 0 10px gray;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#darkModeBtn {
+    border: none;
+    background-color: inherit;
+    color: inherit;
+    cursor: pointer;
+}
