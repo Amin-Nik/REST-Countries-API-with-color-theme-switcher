@@ -1,12 +1,16 @@
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import "./CountryCard.css"
 
-function CountryCard({ flags, name, population, region, capital }) {
+function CountryCard({ flags, name, population, region, capital, countryId }) {
+
     const colorSchema = useSelector(state => state.countrySlice.colorSchema)
+    const navigate = useNavigate();
+    const navigateHandler = () => { navigate(`/country/${countryId}`) };
 
     return (
         <>
-            <section id="Card" style={{ backgroundColor: colorSchema.elementBackGround, color: colorSchema.textColor }}>
+            <section onClick={navigateHandler} id="Card" style={{ backgroundColor: colorSchema.elementBackGround, color: colorSchema.textColor }}>
                 <img src={flags} alt="flag" />
                 <div id="Details">
                     <h3 id="CardName">{name}</h3>

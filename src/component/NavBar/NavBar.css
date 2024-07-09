@@ -4,7 +4,7 @@ nav {
     align-items: center;
     padding: 10px 40px;
     background-color: #fff;
-    box-shadow: 0 0 10px gray;
+    box-shadow: 0 0 10px hsl(207, 26%, 17%);
     position: fixed;
     top: 0;
     width: 100%;

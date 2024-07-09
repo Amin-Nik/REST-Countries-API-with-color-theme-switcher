@@ -4,7 +4,7 @@
     height: 350px;
     background-color: #fff;
     cursor: pointer;
-    box-shadow: 0 0 10px gray;
+    box-shadow: 0 0 10px hsl(207, 26%, 17%);
 }
 
 #Card img {

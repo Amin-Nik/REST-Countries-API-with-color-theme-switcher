@@ -1,7 +1,8 @@
-import HomePage from "./pages/HomePage"
+import HomePage from "./pages/HomePage/HomePage"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from "./component/NavBar/NavBar";
 import "./App.css"
+import CountryPage from "./pages/CountryPage/CountryPage";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/country/:id" element={<CountryPage />} />
         </Routes>
       </BrowserRouter>
     </>
