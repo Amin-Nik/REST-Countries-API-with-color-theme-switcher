@@ -22,8 +22,8 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/:id" element={<CountryPage />} />
+          <Route path="/REST-Countries-API-with-color-theme-switcher" element={<HomePage />} />
+          <Route path="/REST-Countries-API-with-color-theme-switcher/:id" element={<CountryPage />} />
         </Routes>
       </BrowserRouter>
     </>

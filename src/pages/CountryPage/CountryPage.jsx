@@ -8,7 +8,7 @@ function CountryPage() {
     const colorSchema = useSelector(state => state.countrySlice.colorSchema);
     const location = useLocation();
 
-    const thisCountryName = location.pathname.slice(1).replaceAll("-", " ");
+    const thisCountryName = location.pathname.slice(1).replace("REST-Countries-API-with-color-theme-switcher/", "").replaceAll("-", " ");
     const [thisCountry] = countrySlice.filter(country => country.name.common == thisCountryName);
 
     return (
@@ -16,7 +16,7 @@ function CountryPage() {
             <>
                 <section id="CountryPage" style={{ backgroundColor: colorSchema.backGround, color: colorSchema.textColor }}>
                     <div id='imgbtn'>
-                        <TheButton text="Back" navigateTo="/" />
+                        <TheButton text="Back" navigateTo="/REST-Countries-API-with-color-theme-switcher" />
                         <img src={thisCountry.flags.png} alt="Country Flag" />
                     </div>
                     <section id="CountryDetails">
@@ -39,7 +39,7 @@ function CountryPage() {
                                 thisCountry.borders?.map((cca3, inedx) => {
                                     const borderCountry = countrySlice?.filter(country => country.cca3 == cca3);
                                     const countryName = borderCountry[0].name.common;
-                                    return <TheButton key={inedx} text={countryName} navigateTo={"/" + countryName.replaceAll(' ', '-')} />
+                                    return <TheButton key={inedx} text={countryName} navigateTo={"/REST-Countries-API-with-color-theme-switcher/" + countryName.replaceAll(' ', '-')} />
                                 })
                             }
                         </div>
