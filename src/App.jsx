@@ -1,5 +1,5 @@
 import HomePage from "./pages/HomePage/HomePage"
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from "./component/NavBar/NavBar";
 import CountryPage from "./pages/CountryPage/CountryPage";
 import { useDispatch } from "react-redux";
@@ -19,11 +19,13 @@ function App() {
 
   return (
     <>
-      <NavBar />
-      <Routes>
-        <Route path="/REST-Countries-API-with-color-theme-switcher" element={<HomePage />} />
-        <Route path="/REST-Countries-API-with-color-theme-switcher/:id" element={<CountryPage />} />
-      </Routes>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/REST-Countries-API-with-color-theme-switcher" element={<HomePage />} />
+          <Route path="/REST-Countries-API-with-color-theme-switcher/:id" element={<CountryPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

@@ -1,6 +1,5 @@
 {
   "name": "rest-countries-api-with-color-theme-switcher",
-  "homepage": "https://amin-nik.github.io/REST-Countries-API-with-color-theme-switcher",
   "private": true,
   "version": "0.0.0",
   "type": "module",
